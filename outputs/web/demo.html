@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System - Web Demo</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-family-sans);
+      background: var(--color-surface-bg-secondary);
+      color: var(--color-text-primary);
+      line-height: var(--font-line-height-base);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    header {
+      background: var(--color-surface-bg-primary);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-2xl);
+    }
+    
+    h1 {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-brand-primary);
+    }
+    
+    .subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--color-text-secondary);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-2xl);
+    }
+    
+    .card {
+      background: var(--color-surface-bg-primary);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-base);
+      border: 1px solid var(--color-border-subtle);
+    }
+    
+    .card h3 {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .status-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    .status-item {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      gap: var(--spacing-sm);
+    }
+    
+    .status-success {
+      background: color-mix(in srgb, var(--color-semantic-success) 10%, transparent);
+      color: var(--color-semantic-success);
+    }
+    
+    .status-warning {
+      background: color-mix(in srgb, var(--color-semantic-warning) 10%, transparent);
+      color: var(--color-semantic-warning);
+    }
+    
+    .status-error {
+      background: color-mix(in srgb, var(--color-semantic-error) 10%, transparent);
+      color: var(--color-semantic-error);
+    }
+    
+    .status-info {
+      background: color-mix(in srgb, var(--color-semantic-info) 10%, transparent);
+      color: var(--color-semantic-info);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base) var(--transition-ease);
+      font-family: var(--font-family-sans);
+    }
+    
+    .btn-primary {
+      background: var(--color-brand-primary);
+      color: var(--color-text-inverse);
+    }
+    
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-secondary {
+      background: var(--color-brand-secondary);
+      color: var(--color-text-inverse);
+    }
+    
+    .btn-secondary:hover {
+      filter: brightness(1.1);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--color-brand-primary);
+      border: 2px solid var(--color-brand-primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--color-brand-primary);
+      color: var(--color-text-inverse);
+    }
+    
+    .color-swatch {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--spacing-sm);
+    }
+    
+    .swatch {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-subtle);
+    }
+    
+    .swatch-primary { background: var(--color-brand-primary); }
+    .swatch-secondary { background: var(--color-brand-secondary); }
+    .swatch-accent { background: var(--color-brand-accent); }
+    .swatch-success { background: var(--color-semantic-success); }
+    .swatch-warning { background: var(--color-semantic-warning); }
+    .swatch-error { background: var(--color-semantic-error); }
+    
+    .code-block {
+      background: var(--color-surface-bg-tertiary);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family-mono);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      overflow-x: auto;
+    }
+    
+    .input-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+    
+    label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-base);
+      font-family: var(--font-family-sans);
+      transition: border-color var(--transition-base) var(--transition-ease);
+    }
+    
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-brand-primary);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 10%, transparent);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Design System Portfolio</h1>
+      <p class="subtitle">Multi-surface design tokens for web, IDE, and CLI</p>
+    </header>
+    
+    <div class="grid">
+      <div class="card">
+        <h3>Status Indicators</h3>
+        <div class="status-group">
+          <div class="status-item status-success">
+            <span>✓</span> Build successful
+          </div>
+          <div class="status-item status-warning">
+            <span>⚠</span> 3 warnings detected
+          </div>
+          <div class="status-item status-error">
+            <span>✕</span> Deployment failed
+          </div>
+          <div class="status-item status-info">
+            <span>ℹ</span> 2 updates available
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Action Buttons</h3>
+        <div class="button-group">
+          <button class="btn btn-primary">Primary Action</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-outline">Outline</button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Color Palette</h3>
+        <div class="color-swatch">
+          <div class="swatch swatch-primary" title="Primary"></div>
+          <div class="swatch swatch-secondary" title="Secondary"></div>
+          <div class="swatch swatch-accent" title="Accent"></div>
+          <div class="swatch swatch-success" title="Success"></div>
+          <div class="swatch swatch-warning" title="Warning"></div>
+          <div class="swatch swatch-error" title="Error"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid">
+      <div class="card">
+        <h3>Form Inputs</h3>
+        <div class="input-demo">
+          <div class="input-group">
+            <label for="name">Project Name</label>
+            <input type="text" id="name" placeholder="Enter project name">
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+          <div class="input-group">
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Describe your project..."></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>Token Usage</h3>
+        <div class="code-block">
+.button {
+  background: var(--color-brand-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base);
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

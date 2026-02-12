@@ -1,0 +1,78 @@
+{
+  "name": "Design System Portfolio",
+  "type": "light",
+  "colors": {
+    "editor.background": "#FFFFFF",
+    "editor.foreground": "#0F172A",
+    "editorLineNumber.foreground": "#94A3B8",
+    "editorCursor.foreground": "#0066FF",
+    "sideBar.background": "#F8FAFC",
+    "sideBar.foreground": "#475569",
+    "sideBarTitle.foreground": "#0F172A",
+    "activityBar.background": "#F8FAFC",
+    "activityBar.foreground": "#0F172A",
+    "activityBar.activeBorder": "#0066FF",
+    "statusBar.background": "#0066FF",
+    "statusBar.foreground": "#FFFFFF",
+    "tab.activeBackground": "#FFFFFF",
+    "tab.inactiveBackground": "#F8FAFC",
+    "tab.activeForeground": "#0F172A",
+    "tab.inactiveForeground": "#475569",
+    "panel.background": "#FFFFFF",
+    "panelTitle.activeForeground": "#0F172A",
+    "input.background": "#FFFFFF",
+    "input.border": "#CBD5E1",
+    "button.background": "#0066FF",
+    "button.foreground": "#FFFFFF",
+    "list.activeSelectionBackground": "#0066FF20",
+    "list.hoverBackground": "#F1F5F9",
+    "terminal.ansiGreen": "#10B981",
+    "terminal.ansiYellow": "#F59E0B",
+    "terminal.ansiRed": "#EF4444",
+    "terminal.ansiBlue": "#3B82F6"
+  },
+  "tokenColors": [
+    {
+      "scope": [
+        "comment"
+      ],
+      "settings": {
+        "foreground": "#94A3B8",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": [
+        "string"
+      ],
+      "settings": {
+        "foreground": "#10B981"
+      }
+    },
+    {
+      "scope": [
+        "keyword",
+        "storage"
+      ],
+      "settings": {
+        "foreground": "#7C3AED"
+      }
+    },
+    {
+      "scope": [
+        "constant.numeric"
+      ],
+      "settings": {
+        "foreground": "#F59E0B"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.function"
+      ],
+      "settings": {
+        "foreground": "#0066FF"
+      }
+    }
+  ]
+}

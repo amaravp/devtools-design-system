@@ -1,0 +1,12 @@
+{
+  "name": "design-system-portfolio",
+  "version": "1.0.0",
+  "description": "Multi-surface design system for web, IDE, and CLI prototypes",
+  "scripts": {
+    "build": "style-dictionary build --config build/config.js",
+    "build:custom": "node build/custom-outputs.js"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.9.2"
+  }
+}
